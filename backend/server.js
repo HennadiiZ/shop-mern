@@ -3,6 +3,11 @@ const products = require('./data/products');
 
 const app = express();
 
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
+
 app.get('/', (req, res) => {
   res.send('API is running...')
 });
@@ -21,3 +26,8 @@ app.get('/api/products/:id', (req, res) => {
 // });
 
 app.listen(5000, console.log('Server running on port'));
+
+// const PORT = 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
