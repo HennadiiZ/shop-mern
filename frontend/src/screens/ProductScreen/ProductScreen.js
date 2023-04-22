@@ -14,7 +14,7 @@ const ProductScreen = (props) => {
       setProduct(data);
     }
     fetchProduct();
-  }, []);
+  }, [id]);
 
   console.log(product);
 

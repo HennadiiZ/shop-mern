@@ -26,3 +26,5 @@ const App = () => {
 export default App;
 
 // npm i react-router-dom react-router-bootstrap
+// npm i nodemon concurrently
+// npm i -D nodemon concurrently
