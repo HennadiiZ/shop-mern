@@ -29,3 +29,4 @@ export default App;
 // npm i nodemon concurrently
 // npm i -D nodemon concurrently
 // npm i dotenv
+// node --version
