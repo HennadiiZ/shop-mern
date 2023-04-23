@@ -32,3 +32,4 @@ export default App;
 // npm i dotenv
 // node --version
 // npm i mongoose
+// npm i bcryptjs
