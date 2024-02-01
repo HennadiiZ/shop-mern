@@ -33,3 +33,6 @@ export default App;
 // node --version
 // npm i mongoose
 // npm i bcryptjs
+
+// npm run data:import
+// npm run data:destroy

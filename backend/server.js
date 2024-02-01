@@ -1,3 +1,34 @@
+// Handling errors:
+// Create an XMLHttpRequest object
+var xhr = new XMLHttpRequest();
+
+// Set up a callback function to handle the response
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      console.log(response);
+    } else {
+      console.error('Error:', xhr.status);
+    }
+  }
+};
+
+// Open a GET request
+xhr.open('GET', 'https://api.example.com/data', true);
+
+// Send the request
+xhr.send();
+
+
+
+
+
+
+
+
+
+
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js'
