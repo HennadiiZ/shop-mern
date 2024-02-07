@@ -10,18 +10,18 @@ const App = () => {
   return (
     <>
       <Header />
-        <main className="py-3">
-          <Container>
-            <Routes>
-              <Route path='/' element={ <HomeScreen /> } exact/>
-              <Route path='/product/:id' element={ <ProductScreen /> } />
-            </Routes>
-          </Container>
-        </main>
+      <main className='py-3'>
+        <Container>
+          <Routes>
+            <Route path='/' element={<HomeScreen />} exact />
+            <Route path='/product/:id' element={<ProductScreen />} />
+          </Routes>
+        </Container>
+      </main>
       <Footer />
     </>
   );
-}
+};
 
 export default App;
 
@@ -36,3 +36,8 @@ export default App;
 
 // npm run data:import
 // npm run data:destroy
+
+//   "proxy": "http://127.0.0.1:5001",
+// npm start
+
+// npm run dev
