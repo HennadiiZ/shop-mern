@@ -1,0 +1,7 @@
+Redux Pattern
+
+Reducer --->   Components 
+    ^               |
+    |-- Actions <---  
+             ^
+Server <-----|         
