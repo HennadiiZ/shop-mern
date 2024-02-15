@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, Link, useLocation } from 'react-router';
+import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -46,37 +46,62 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    // Redirect to the checkout page or implement your checkout logic
+    // Redirect to the checkout page
     navigate('/checkout');
   };
-
-  //   return (
-  //     <div>
-  //       Cart
-  //       <Message />
-  //     </div>
-  //   );
 
   return (
     <Row>
       <Col md={8}>
         <h2>Shopping Cart</h2>
         {cartItems.length === 0 ? (
-          <Message>Your cart is empty</Message>
+          <Message>
+            Your cart is empty <Link to='/'>Go Back</Link>
+          </Message>
         ) : (
           <ListGroup variant='flush'>
             {cartItems.map((item) => (
               <ListGroup.Item key={item.product}>
-                {/* Display your cart item details here */}
-                <p>{item.name}</p>
-                <p>Quantity: {item.qty}</p>
-                <Button
-                  type='button'
-                  variant='light'
-                  onClick={() => removeFromCartHandler(item.product)}
-                >
-                  Remove
-                </Button>
+                {/*  */}
+                <Row>
+                  <Col md={4}>
+                    <Image
+                      src={item.image}
+                      // style={{ width: '200px' }}
+                      fluid
+                      rounded
+                    />
+                  </Col>
+                  <Col md={6}>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    <p>Quantity: {item.quantity}</p>
+                    <p>$ {item.price}</p>
+                    {/*  */}
+                    <Form.Control
+                      as='select'
+                      value={item.quantity}
+                      onChange={(e) =>
+                        dispatch(addToCart(item.product, +e.target.value))
+                      }
+                    >
+                      {[...Array(item.countInStock).keys()].map((i) => (
+                        <option key={i + 1} value={i + 1}>
+                          {i + 1}
+                        </option>
+                      ))}
+                    </Form.Control>
+                    {/*  */}
+                    <Button
+                      style={{ marginTop: '15px' }}
+                      type='button'
+                      variant='light'
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      Remove
+                    </Button>
+                  </Col>
+                </Row>
+                {/*  */}
               </ListGroup.Item>
             ))}
           </ListGroup>
@@ -86,12 +111,12 @@ const CartScreen = () => {
         <ListGroup variant='flush'>
           <ListGroup.Item>
             <h2>
-              Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+              Subtotal ({cartItems.reduce((acc, item) => +acc + +item.qty, 0)})
               items
             </h2>
             $
             {cartItems
-              .reduce((acc, item) => acc + item.qty * item.price, 0)
+              .reduce((acc, item) => +acc + +item.qty * +item.price, 0)
               .toFixed(2)}
           </ListGroup.Item>
           <ListGroup.Item>
