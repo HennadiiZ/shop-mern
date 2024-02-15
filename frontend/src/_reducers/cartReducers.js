@@ -1,3 +1,4 @@
+// cartReducers.js
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants';
 
 const initialState = {
@@ -21,14 +22,10 @@ export const cartReducer = (state = initialState, action) => {
         return { ...state, cartItems: [...state.cartItems, item] };
       }
 
-    //   return {
-    //     ...state,
-    //     cart: [...state.cartItems, action.payload], // Add the new item to the existing cart
-    //   };
     case CART_REMOVE_ITEM:
       return {
         ...state,
-        cart: state.cartItems.filter((item) => item.id !== action.payload), // Remove the item with the specified id
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload), // Remove the item with the specified id
       };
     default:
       return state;

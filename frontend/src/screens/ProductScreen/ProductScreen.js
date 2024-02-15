@@ -10,7 +10,7 @@ import Message from '../../components/Message/Message';
 
 const ProductScreen = ({ history, match }) => {
   // const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();

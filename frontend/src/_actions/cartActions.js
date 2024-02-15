@@ -1,10 +1,11 @@
+// cartActions.js
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants';
 import axios from 'axios';
 
 // Action to add an item to the cart
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
   try {
-    dispatch({ type: CART_ADD_ITEM });
+    // dispatch({ type: CART_ADD_ITEM });
 
     // Fetch the product details based on the provided id
     const { data } = await axios.get(`/api/products/${id}`);
@@ -21,8 +22,13 @@ export const addToCart = (id, quantity) => async (dispatch, getState) => {
       },
     });
 
+    console.log('Updated cartItems:', getState().cart.cartItems);
+
     // Save the updated cart to local storage
-    localStorage.setItem('cartItems', JSON.stringify(getState().cart.cart));
+    localStorage.setItem(
+      'cartItems',
+      JSON.stringify(getState().cart.cartItems)
+    );
     //
   } catch (error) {
     dispatch({
@@ -43,5 +49,5 @@ export const removeFromCart = (id) => (dispatch, getState) => {
   });
 
   // Save the updated cart to local storage
-  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cart));
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
