@@ -26,13 +26,14 @@ const App = () => {
 export default App;
 
 // rafce
-// npm i react-router-dom react-router-bootstrap
-// npm i nodemon concurrently
-// npm i -D nodemon concurrently
+// npm i react-router-dom react-router-bootstrap (frontend)
+// npm i nodemon concurrently (backend)
+// npm i -D nodemon concurrently (backend)
 // npm i dotenv
 // node --version
 // npm i mongoose
 // npm i bcryptjs
+// npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
 
 // npm run data:import
 // npm run data:destroy
