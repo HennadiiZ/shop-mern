@@ -5,17 +5,18 @@ import {
 } from '../constants/productConstants';
 
 const initialState = {
+  //   loading: false,
   products: [],
 };
 
 export const productListReducer = (state = initialState, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
-      return { loading: true, product: [] };
+      return { loading: true, products: [] };
     case PRODUCT_LIST_SUCCESS:
-      return { loading: true, product: [] };
+      return { loading: false, products: action.payload };
     case PRODUCT_LIST_FAIL:
-      return { loading: true, product: [] };
+      return { loading: false, error: action.payload };
     default:
       return state;
   }
