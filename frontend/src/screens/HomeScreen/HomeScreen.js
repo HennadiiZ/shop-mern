@@ -4,6 +4,8 @@ import { Row, Col } from 'react-bootstrap';
 import Product from '../../components/Product/Product';
 // import products from '../../data/products';
 
+import listProducts from './_actions/productActions';
+
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
