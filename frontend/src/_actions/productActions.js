@@ -48,12 +48,3 @@ export const getProductDetails = (productId) => async (dispatch) => {
     });
   }
 };
-
-// export const listProducts = () => {
-//   const fetchProducts = async () => {
-//     const { data } = await axios.get('/api/products');
-//     console.log('data', data);
-//     // setProducts(data);
-//   };
-//   fetchProducts();
-// };

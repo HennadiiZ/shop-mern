@@ -1,14 +1,7 @@
-// Inside productRoutes.js
 import express from 'express';
 import asyncHandler from 'express-async-handler';
 const router = express.Router();
 import Product from '../models/productModel.js';
-
-// router.get('/', async (req, res) => {
-//   const products = await Product.find({});
-//   res.json(products);
-//   // console.log(res);
-// });
 
 // @desc Fetch all products
 // @route GET /api/products
@@ -18,13 +11,7 @@ router.get(
   '/',
   asyncHandler(async (req, res) => {
     const products = await Product.find({});
-
-    // res.status(401);
-
-    // throw new Error('Not Authorized');
-
     res.json(products);
-    // console.log(res);
   })
 );
 
@@ -49,5 +36,3 @@ router.get(
 );
 
 export default router;
-
-// npm i express-async-handler

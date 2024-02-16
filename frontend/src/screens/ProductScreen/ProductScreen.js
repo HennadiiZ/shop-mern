@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import axios from 'axios';
 import { Row, Col, Image, ListGroup, Button, Form } from 'react-bootstrap';
 import Rating from '../../components/Rating/Rating';
 import { getProductDetails } from '../../_actions/productActions';
@@ -9,22 +8,10 @@ import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 
 const ProductScreen = ({ history, match }) => {
-  // const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
-
-  // console.log('useParams', useParams);
-
-  // useEffect(() => {
-  //   const fetchProduct = async () => {
-  //     const { data } = await axios.get(`/api/products/${id}`);
-  //     // const { data } = await axios.get(`/api/products/${match.params.id}`);
-  //     setProduct(data);
-  //   };
-  //   fetchProduct();
-  // }, [id]);
 
   useEffect(() => {
     dispatch(getProductDetails(id));
@@ -33,11 +20,7 @@ const ProductScreen = ({ history, match }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  // console.log('product+++', product);
-
   const addToCartHandler = () => {
-    // history.push(`/cart/${match.params.id}?qty=${quantity}`);
-    // history.push(`/cart/${id}?qty=${quantity}`);
     navigate(`/cart/${id}?qty=${quantity}`);
   };
 

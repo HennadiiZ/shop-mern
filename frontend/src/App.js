@@ -29,13 +29,14 @@ export default App;
 
 // rafce
 // npm i react-router-dom react-router-bootstrap (frontend)
+// npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
 // npm i nodemon concurrently (backend)
 // npm i -D nodemon concurrently (backend)
-// npm i dotenv
-// node --version
-// npm i mongoose
-// npm i bcryptjs
-// npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
+// npm i dotenv (root)
+// node --version (root)
+// npm i mongoose (root)
+// npm i bcryptjs (root)
+// npm i express-async-handler (root)
 
 // npm run data:import
 // npm run data:destroy
@@ -43,4 +44,4 @@ export default App;
 //   "proxy": "http://127.0.0.1:5001",
 // npm start
 
-// npm run dev
+// npm run dev (root)

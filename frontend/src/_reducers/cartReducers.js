@@ -27,28 +27,9 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: state.cartItems.filter(
           (item) => item.product !== action.payload
-        ), // Remove the item with the specified id
+        ),
       };
     default:
       return state;
   }
 };
-
-//
-
-// export const cartReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case CART_ADD_ITEM:
-//       return {
-//         ...state,
-//         cart: [...state.cartItems, action.payload], // Add the new item to the existing cart
-//       };
-//     case CART_REMOVE_ITEM:
-//       return {
-//         ...state,
-//         cart: state.cartItems.filter((item) => item.id !== action.payload), // Remove the item with the specified id
-//       };
-//     default:
-//       return state;
-//   }
-// };
