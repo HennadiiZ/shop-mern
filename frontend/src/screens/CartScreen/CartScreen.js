@@ -10,7 +10,7 @@ import {
   Button,
   Cart,
 } from 'react-bootstrap';
-import { addToCart } from '../../_actions/cartActions';
+import { addToCart, removeFromCart } from '../../_actions/cartActions';
 import Message from '../../components/Message/Message';
 
 // const CartScreen = ({ match, location, history }) => {
@@ -42,12 +42,12 @@ const CartScreen = () => {
   //   console.log('cartItems', cartItems);
 
   const removeFromCartHandler = (productId) => {
-    // Implement logic to remove item from the cart
+    dispatch(removeFromCart(productId));
   };
 
   const checkoutHandler = () => {
-    // Redirect to the checkout page
-    navigate('/checkout');
+    // navigate('/checkout');
+    navigate('/login?redirect=shipping');
   };
 
   return (
@@ -111,12 +111,12 @@ const CartScreen = () => {
         <ListGroup variant='flush'>
           <ListGroup.Item>
             <h2>
-              Subtotal ({cartItems.reduce((acc, item) => +acc + +item.qty, 0)})
-              items
+              Subtotal&nbsp;
+              {cartItems.reduce((acc, item) => +acc + +item.quantity, 0)} items
             </h2>
             $
             {cartItems
-              .reduce((acc, item) => +acc + +item.qty * +item.price, 0)
+              .reduce((acc, item) => +acc + +item.quantity * +item.price, 0)
               .toFixed(2)}
           </ListGroup.Item>
           <ListGroup.Item>
