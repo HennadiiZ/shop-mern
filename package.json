@@ -12,6 +12,7 @@
     "express-async-handler": "^1.2.0",
     "fs": "^0.0.1-security",
     "js-tokens": "^4.0.0",
+    "jsonwebtoken": "^9.0.2",
     "loose-envify": "^1.4.0",
     "mongoose": "^7.0.4",
     "object-assign": "^4.1.1",

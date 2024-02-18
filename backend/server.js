@@ -1,8 +1,10 @@
+// server.js
 import express from 'express';
 import dotenv from 'dotenv';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -10,17 +12,22 @@ connectDB();
 
 const app = express();
 
+app.use(express.json());
+
 //middleware
 app.use((req, res, next) => {
-  console.log('Hello!----- ');
+  console.log('Hello! req----- ');
   console.log('Request method:', req.method); // GET
   console.log('Request URL:', req.url); // /api/products
   console.log('Request headers:', req.headers); // {}
-  console.log('Request body:', req.body); // undefined ???
+  console.log('Request body:', req.body); // { email: 'john@example.com', password: 12345 }
   console.log('Hello! res----- ');
   // console.log(res);
-  console.log('Response status code:', res.statusCode);
-  console.log('Response headers:', res.getHeaders());
+  console.log('Response status code:', res.statusCode); // code: 200
+  console.log('Response headers:', res.getHeaders()); // [Object: null prototype] { 'x-powered-by': 'Express' }
+
+  // console.log('req-----------|--------------', req);
+  // console.log('res-----------|--------------', res);
   next();
 });
 
@@ -30,6 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 app.use(notFound);
 
