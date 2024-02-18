@@ -8,13 +8,10 @@ import User from '../models/userModel.js';
 // @access Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  //   res.send({ email, password });
 
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    // const token = generateToken(user._id);
-
     res.json({
       _id: user._id,
       name: user.name,
@@ -66,9 +63,6 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
-  // console.log('req.user._id+++++++++++++++++', User.findById(req.user._id));
-  //   // console.log('req.user._id+++++++++++++++++', user); // req.user._id+++++++++++++++++ new ObjectId("65cfab36ede73f1121273161")
-  // //   console.log('user+++', user);
 
   if (user) {
     res.json({
@@ -81,7 +75,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error('User not found');
   }
-  //   res.send('successsssss!!!');
 });
 
 export { authUser, registerUser, getUserProfile };
