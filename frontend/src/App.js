@@ -37,11 +37,13 @@ export default App;
 // npm i mongoose (root)
 // npm i bcryptjs (root)
 // npm i express-async-handler (root)
+// npm i jsonwebtoken (root)
 
 // npm run data:import
 // npm run data:destroy
 
-//   "proxy": "http://127.0.0.1:5001",
+// "proxy": "http://127.0.0.1:5001",
+// https://jwt.io/
 // npm start
 
 // npm run dev (root)
