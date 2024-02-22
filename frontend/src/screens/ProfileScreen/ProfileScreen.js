@@ -19,30 +19,45 @@ const ProfileScreen = () => {
 
   const dispatch = useDispatch();
 
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userDetails = useSelector((state) => state.userDetails);
+  const { loading, error, user } = userDetails;
+
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
+
+  // useEffect(() => {
+  //   if (!userInfo) {
+  //     navigate('/login');
+  //   } else {
+  //     if (!user.name) {
+  //       dispatch(getUserDetails('profile'));
+  //     } else {
+  //       setName(user.name);
+  //       setEmail(user.email);
+  //     }
+  //     // console.log('user', user); // { }
+  //     // console.log('user.name', user.name); // undefined
+  //     // console.log('userDetails', userDetails);
+  //   }
+  // }, [userInfo, navigate, dispatch, user, userDetails]);
 
   useEffect(() => {
     if (!userInfo) {
       navigate('/login');
     } else {
-      //   if (!user.name) {
-      //     dispatch(getUserDetails('profile'));
-      //   } else {
-      //     setName(user.name);
-      //     setEmail(user.email);
-      //   }
-      console.log('user', user);
-      console.log('user.name', user.name);
-      console.log('userDetails', userDetails);
+      dispatch(getUserDetails('profile'));
     }
-  }, [userInfo, navigate, dispatch, user, userDetails]);
+  }, [userInfo, navigate, dispatch]);
+
+  useEffect(() => {
+    if (user && user.name) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }, [user]);
 
   const submitHandler = (e) => {
     e.preventDefault();

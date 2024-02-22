@@ -84,6 +84,7 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
 };
 
+// userActions.js
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
@@ -92,17 +93,16 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    console.log('userInfo.token', userInfo.token);
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // Authrization: `Bearer ${getState.userLogin.userInfo}`,
-        Authrization: `Bearer ${userInfo.token}`,
+        // Authorization: `Bearer ${getState.userLogin.userInfo.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.post(`/api/users/${id}`, config);
+    const { data } = await axios.get(`/api/users/${id}`, config);
+    // console.log('User details fetched:', data); // {_id: '65cfab36ede73f112127315f', name: 'ghmmm', email: 'admin@example.com', isAdmin: true}
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
