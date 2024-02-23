@@ -9,12 +9,23 @@ const PlaceOrderPage = () => {
   const cart = useSelector((state) => state.cart);
 
   //   Calculate prices
+  //   const addDecimals = (num) => {
+  //     return (Math.round(num * 100) / 100).toFixed(2);
+  //   };
   const addDecimals = (num) => {
-    return (Math.round(num * 100) / 100).toFixed(2);
+    return isNaN(num)
+      ? '0.00'
+      : (Math.round(parseFloat(num) * 100) / 100).toFixed(2);
   };
 
+  //   cart.itemsPrice = addDecimals(
+  //     // cart.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  //   );
   cart.itemsPrice = addDecimals(
-    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    cart.cartItems.reduce(
+      (acc, item) => acc + parseFloat(item.price) * parseFloat(item.quantity),
+      0
+    )
   );
   cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100);
   cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)));
@@ -73,7 +84,8 @@ const PlaceOrderPage = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.quantity} x ${item.price} = $
+                          {item.quantity * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>

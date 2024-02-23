@@ -6,13 +6,13 @@ import CheckoutSteps from '../../components/CheckoutSteps/CheckoutSteps';
 import { savePaymentMethod } from '../../_actions/cartActions';
 import { useNavigate } from 'react-router';
 
-const PaymentPage = ({ history }) => {
+const PaymentPage = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   const navigate = useNavigate();
 
   if (!shippingAddress) {
-    history.push('/shipping');
+    navigate('/shipping');
   }
 
   const [paymentMethod, setPaymentMethod] = useState('PayPal');
