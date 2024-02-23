@@ -7,7 +7,7 @@ import { getProductDetails } from '../../_actions/productActions';
 import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 
-const ProductScreen = ({ history, match }) => {
+const ProductPage = ({ history, match }) => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -113,4 +113,4 @@ const ProductScreen = ({ history, match }) => {
   );
 };
 
-export default ProductScreen;
+export default ProductPage;

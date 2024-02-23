@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAddress } from '../../_actions/cartActions';
 import FormContainer from '../../components/FormContainer/FormContainer';
 
-// const ShippingScreen = ({ history }) => {
-const ShippingScreen = () => {
+const ShippingPage = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
@@ -22,7 +21,6 @@ const ShippingScreen = () => {
     e.preventDefault();
     dispatch(saveShippingAddress({ address, city, postalCode, country }));
 
-    // history.push('/payment');
     navigate('/payment');
   };
 
@@ -82,4 +80,4 @@ const ShippingScreen = () => {
   );
 };
 
-export default ShippingScreen;
+export default ShippingPage;
