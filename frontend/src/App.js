@@ -3,12 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import HomeScreen from './screens/HomeScreen/HomeScreen';
-import ProductScreen from './screens/ProductScreen/ProductScreen';
-import CartScreen from './screens/CartScreen/CartScreen';
-import LoginScreen from './screens/LoginScreen/LoginScreen';
-import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
-import ProfileScreen from './screens/ProfileScreen/ProfileScreen';
+import HomePage from './pages/HomePage/HomePage';
+import ProductPage from './pages/ProductPage/ProductPage';
+import CartPage from './pages/CartPage/CartPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ShippingPage from './pages/ShippingPage/ShippingPage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
+import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage';
 
 const App = () => {
   return (
@@ -17,12 +20,15 @@ const App = () => {
       <main className='py-3'>
         <Container>
           <Routes>
-            <Route path='/' element={<HomeScreen />} exact />
-            <Route path='/product/:id' element={<ProductScreen />} />
-            <Route path='/cart/:id?' element={<CartScreen />} />
-            <Route path='/register' element={<RegisterScreen />} />
-            <Route path='/login' element={<LoginScreen />} />
-            <Route path='/profile' element={<ProfileScreen />} />
+            <Route path='/' element={<HomePage />} exact />
+            <Route path='/product/:id' element={<ProductPage />} />
+            <Route path='/cart/:id?' element={<CartPage />} />
+            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/shipping' element={<ShippingPage />} />
+            <Route path='/payment' element={<PaymentPage />} />
+            <Route path='/placeorder' element={<PlaceOrderPage />} />
           </Routes>
         </Container>
       </main>

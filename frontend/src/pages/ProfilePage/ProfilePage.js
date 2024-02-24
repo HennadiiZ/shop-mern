@@ -6,15 +6,13 @@ import Message from '../../components/Message/Message';
 import Loader from '../../components/Loader/Loader';
 import { getUserDetails, updateUserProfile } from '../../_actions/userActions';
 
-const ProfileScreen = () => {
+const ProfilePage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
 
-  // const location = useLocation();
-  // const history = useHistory();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -130,4 +128,4 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default ProfilePage;

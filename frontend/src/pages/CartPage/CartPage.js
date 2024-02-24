@@ -5,7 +5,7 @@ import { Row, Col, ListGroup, Image, Form, Button } from 'react-bootstrap';
 import { addToCart, removeFromCart } from '../../_actions/cartActions';
 import Message from '../../components/Message/Message';
 
-const CartScreen = () => {
+const CartPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -16,8 +16,13 @@ const CartScreen = () => {
 
   const quantity = queryString ? +searchParams.get('qty') : 1;
 
-  console.log('searchParams.get(qty):', searchParams.get('qty')); // 1
-  console.log('queryString:', queryString); //?qty=1
+  // console.log('searchParams.get(qty):', searchParams.get('qty')); // 1
+  // console.log('queryString:', queryString); //?qty=1
+
+  //fix
+  const userInfo = useSelector((state) => state.userLogin.userInfo);
+  const redirectPath = userInfo ? '/shipping' : '/login?redirect=shipping';
+  //fix
 
   useEffect(() => {
     if (id) {
@@ -33,7 +38,8 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping');
+    // navigate('/login?redirect=shipping');
+    navigate(redirectPath); //fix
   };
 
   return (
@@ -121,4 +127,4 @@ const CartScreen = () => {
   );
 };
 
-export default CartScreen;
+export default CartPage;
