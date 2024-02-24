@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../../components/Product/Product';
@@ -6,7 +6,7 @@ import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import { listProducts } from '../../_actions/productActions';
 
-const HomeScreen = () => {
+const HomePage = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
@@ -35,4 +35,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default HomePage;
