@@ -31,28 +31,12 @@ const ProfilePage = () => {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
-  // useEffect(() => {
-  //   if (!userInfo) {
-  //     navigate('/login');
-  //   } else {
-  //     if (!user.name) {
-  //       dispatch(getUserDetails('profile'));
-  //     } else {
-  //       setName(user.name);
-  //       setEmail(user.email);
-  //     }
-  //     // console.log('user', user); // { }
-  //     // console.log('user.name', user.name); // undefined
-  //     // console.log('userDetails', userDetails);
-  //   }
-  // }, [userInfo, navigate, dispatch, user, userDetails]);
-
   useEffect(() => {
     if (!userInfo) {
       navigate('/login');
     } else {
       dispatch(getUserDetails('profile'));
-      dispatch(listMyOrders()); //+++++++
+      dispatch(listMyOrders());
     }
   }, [userInfo, navigate, dispatch]);
 

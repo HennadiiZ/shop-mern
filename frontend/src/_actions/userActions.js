@@ -106,7 +106,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(`/api/users/${id}`, config);
-    // console.log('User details fetched:', data); // {_id: '65cfab36ede73f112127315f', name: 'ghmmm', email: 'admin@example.com', isAdmin: true}
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {

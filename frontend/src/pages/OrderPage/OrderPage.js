@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../../components/Message/Message';
 import Loader from '../../components/Loader/Loader';
 import { getOrderDetails, payOrder } from '../../_actions/orderActions';
 import { ORDER_PAY_RESET } from '../../constants/orderConstants';
 
-// const OrderPage = ({ match }) => {
-//   const orderId = match.params.id;
 const OrderPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -39,10 +37,8 @@ const OrderPage = () => {
   }
 
   useEffect(() => {
-    // <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal');
-      //   console.log('clientId', clientId);
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
@@ -145,14 +141,8 @@ const OrderPage = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.quantity} x ${item.price} =
-                          {/* {item.quantity * item.price} */}
-                          {/* {(item.quantity * item.price).toString().includes('.')
-                            ? (item.quantity * item.price)
-                                .toString()
-                                .split('.')[0]
-                            : item.quantity * item.price} */}
-                          ${(item.quantity * item.price).toFixed(2)}
+                          {item.quantity} x ${item.price} = $
+                          {(item.quantity * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -208,24 +198,6 @@ const OrderPage = () => {
                       amount={order.totalPrice}
                       onSuccess={successPaymentHandler}
                     />
-                  )}
-                </ListGroup.Item>
-              )} */}
-
-              {/*  */}
-
-              {/* {!order.isPaid && (
-                <ListGroup.Item>
-                  {loadingPay && <Loader />}
-                  {!sdkReady ? (
-                    <Loader />
-                  ) : (
-                    <Button
-                      amount={order.totalPrice}
-                      onSuccess={successPaymentHandler}
-                    >
-                      PayPal: {order.totalPrice}
-                    </Button>
                   )}
                 </ListGroup.Item>
               )} */}
