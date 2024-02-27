@@ -44,6 +44,7 @@ export default App;
 // rafce
 // npm i react-router-dom react-router-bootstrap (frontend)
 // npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
+// npm i react-paypal-button-v2 (frontend)
 // npm i nodemon concurrently (backend)
 // npm i -D nodemon concurrently (backend)
 // npm i dotenv (root)
