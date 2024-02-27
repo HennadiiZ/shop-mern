@@ -33,7 +33,7 @@ const OrderPage = () => {
   useEffect(() => {
     // dispatch(getOrderDetails(orderId));
     dispatch(getOrderDetails(id));
-  }, []);
+  }, [dispatch, id]);
 
   return loading ? (
     <Loader />
