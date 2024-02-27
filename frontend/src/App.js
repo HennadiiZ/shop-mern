@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ShippingPage from './pages/ShippingPage/ShippingPage';
 import PaymentPage from './pages/PaymentPage/PaymentPage';
 import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage';
+import OrderPage from './pages/OrderPage/OrderPage';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path='/shipping' element={<ShippingPage />} />
             <Route path='/payment' element={<PaymentPage />} />
             <Route path='/placeorder' element={<PlaceOrderPage />} />
+            <Route path='/order/:id' element={<OrderPage />} />
           </Routes>
         </Container>
       </main>
@@ -42,6 +44,7 @@ export default App;
 // rafce
 // npm i react-router-dom react-router-bootstrap (frontend)
 // npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
+// npm i react-paypal-button-v2 (frontend)
 // npm i nodemon concurrently (backend)
 // npm i -D nodemon concurrently (backend)
 // npm i dotenv (root)
