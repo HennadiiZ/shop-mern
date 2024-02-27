@@ -61,6 +61,7 @@ const OrderPage = () => {
         addPayPalScript();
       } else {
         setSdkReady(true);
+        // history.push('/success-page');
       }
     }
   }, [dispatch, id, successPay, order]);
