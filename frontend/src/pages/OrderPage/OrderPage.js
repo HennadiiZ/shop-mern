@@ -186,7 +186,13 @@ const OrderPage = () => {
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {!order.isPaid && (
+              {/*  */}
+              <PayPalButton
+                amount={order.totalPrice}
+                onSuccess={successPaymentHandler}
+              />
+              {/*  */}
+              {/* {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
@@ -198,7 +204,9 @@ const OrderPage = () => {
                     />
                   )}
                 </ListGroup.Item>
-              )}
+              )} */}
+
+              {/*  */}
 
               {/* {!order.isPaid && (
                 <ListGroup.Item>
