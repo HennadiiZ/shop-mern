@@ -63,16 +63,16 @@ const OrderPage = () => {
       } else {
         setSdkReady(true);
       }
-
-      //   if (order && order.isPaid) {
-      //     navigate('/profile');
-      //   }
     }
   }, [dispatch, id, successPay, order, navigate]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log('paymentResult', paymentResult);
     dispatch(payOrder(id, paymentResult));
+
+    if (paymentResult.status === 'COMPLETED') {
+      navigate('/profile');
+    }
   };
 
   return loading ? (
