@@ -63,11 +63,11 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    console.log('id', id); //
+    // console.log('id', id); //
 
-    const { data } = await axios.get(`/api/orders${id}`, config);
+    const { data } = await axios.get(`/api/orders/${id}`, config);
 
-    console.log('data++++', data);
+    // console.log('data++++', data);
 
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
