@@ -13,7 +13,9 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
+  USER_DETAILS_RESET,
 } from '../constants/userConstants';
+import { ORDER_LIST_MY_RESET } from '../constants/orderConstants';
 
 export const register = (name, email, password) => async (dispatch) => {
   try {
@@ -79,6 +81,8 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   // Clear user information from Redux store
   dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_DETAILS_RESET });
+  dispatch({ type: ORDER_LIST_MY_RESET });
 
   // Remove user information from local storage
   localStorage.removeItem('userInfo');
@@ -102,7 +106,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(`/api/users/${id}`, config);
-    // console.log('User details fetched:', data); // {_id: '65cfab36ede73f112127315f', name: 'ghmmm', email: 'admin@example.com', isAdmin: true}
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
