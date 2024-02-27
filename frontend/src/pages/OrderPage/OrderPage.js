@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../../components/Message/Message';
@@ -13,6 +13,7 @@ import { ORDER_PAY_RESET } from '../../constants/orderConstants';
 //   const orderId = match.params.id;
 const OrderPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [sdkReady, setSdkReady] = useState(false);
@@ -61,10 +62,13 @@ const OrderPage = () => {
         addPayPalScript();
       } else {
         setSdkReady(true);
-        // history.push('/success-page');
       }
+
+      //   if (order && order.isPaid) {
+      //     navigate('/profile');
+      //   }
     }
-  }, [dispatch, id, successPay, order]);
+  }, [dispatch, id, successPay, order, navigate]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log('paymentResult', paymentResult);
@@ -141,13 +145,14 @@ const OrderPage = () => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.quantity} x ${item.price} = $
+                          {item.quantity} x ${item.price} =
                           {/* {item.quantity * item.price} */}
-                          {(item.quantity * item.price).toString().includes('.')
+                          {/* {(item.quantity * item.price).toString().includes('.')
                             ? (item.quantity * item.price)
                                 .toString()
                                 .split('.')[0]
-                            : item.quantity * item.price}
+                            : item.quantity * item.price} */}
+                          ${(item.quantity * item.price).toFixed(2)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
