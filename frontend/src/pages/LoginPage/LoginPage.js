@@ -34,50 +34,54 @@ const LoginPage = () => {
 
   return (
     <FormContainer>
-      <Typography variant='h4'>Sign In</Typography>
-      {error && <Message variant='danger'>{error}</Message>}
-      {loading && <Loader />}
-      <form onSubmit={submitHandler}>
-        <TextField
-          label='Email Address'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          type='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <Grid
+        sx={{ mt: 5, padding: 3, backgroundColor: '#f4f4f4', borderRadius: 2 }}
+      >
+        <Typography variant='h4'>Sign In</Typography>
+        {error && <Message variant='danger'>{error}</Message>}
+        {loading && <Loader />}
+        <form onSubmit={submitHandler}>
+          <TextField
+            label='Email Address'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <TextField
-          label='Password'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <TextField
+            label='Password'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <Button
-          type='submit'
-          variant='contained'
-          color='primary'
-          fullWidth
-          sx={{ mt: 3 }}
-        >
-          Sign In
-        </Button>
-      </form>
-
-      <Grid container justifyContent='center' className='py-3'>
-        <Typography>
-          New Customer?{' '}
-          <RouterLink
-            to={redirect ? `/register?redirect=${redirect}` : '/register'}
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            sx={{ mt: 3 }}
           >
-            Register
-          </RouterLink>
-        </Typography>
+            Sign In
+          </Button>
+        </form>
+
+        <Grid container justifyContent='center' className='py-3'>
+          <Typography>
+            New Customer?{' '}
+            <RouterLink
+              to={redirect ? `/register?redirect=${redirect}` : '/register'}
+            >
+              Register
+            </RouterLink>
+          </Typography>
+        </Grid>
       </Grid>
     </FormContainer>
   );

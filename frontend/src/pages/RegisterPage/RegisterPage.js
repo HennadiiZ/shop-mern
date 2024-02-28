@@ -41,70 +41,76 @@ const RegisterPage = () => {
 
   return (
     <FormContainer>
-      <Typography variant='h4'>Register</Typography>
-      {message && <Message variant='danger'>{message}</Message>}
-      {error && <Message variant='danger'>{error}</Message>}
+      <Grid
+        sx={{ mt: 5, padding: 3, backgroundColor: '#f4f4f4', borderRadius: 2 }}
+      >
+        <Typography variant='h4'>Register</Typography>
+        {message && <Message variant='danger'>{message}</Message>}
+        {error && <Message variant='danger'>{error}</Message>}
 
-      {loading && <Loader />}
+        {loading && <Loader />}
 
-      <form onSubmit={submitHandler}>
-        <TextField
-          label='Name'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <form onSubmit={submitHandler}>
+          <TextField
+            label='Name'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <TextField
-          label='Email Address'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          type='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <TextField
+            label='Email Address'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <TextField
-          label='Password'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <TextField
+            label='Password'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <TextField
-          label='Confirm Password'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          type='password'
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+          <TextField
+            label='Confirm Password'
+            variant='outlined'
+            fullWidth
+            margin='normal'
+            type='password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
 
-        <Button
-          type='submit'
-          variant='contained'
-          color='primary'
-          fullWidth
-          sx={{ mt: 3 }}
-        >
-          Register
-        </Button>
-      </form>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            fullWidth
+            sx={{ mt: 3 }}
+          >
+            Register
+          </Button>
+        </form>
 
-      <Grid container justifyContent='center' className='py-3'>
-        <Typography>
-          Have an Account?{' '}
-          <RouterLink to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-            Login
-          </RouterLink>
-        </Typography>
+        <Grid container justifyContent='center' className='py-3'>
+          <Typography>
+            Have an Account?{' '}
+            <RouterLink
+              to={redirect ? `/login?redirect=${redirect}` : '/login'}
+            >
+              Login
+            </RouterLink>
+          </Typography>
+        </Grid>
       </Grid>
     </FormContainer>
   );

@@ -116,7 +116,7 @@ const CartPage = () => {
             sx={{
               backgroundColor: '#f4f4f4',
               padding: 3,
-              marginTop: 2,
+              marginTop: 4,
               marginLeft: 2,
               borderRadius: 2,
               boxShadow:
