@@ -1,5 +1,7 @@
+// //-----
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import { Container } from 'react-bootstrap';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -40,11 +42,14 @@ const App = () => {
 };
 
 export default App;
+//-----
 
 // rafce
 // npm i react-router-dom react-router-bootstrap (frontend)
 // npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
 // npm i react-paypal-button-v2 (frontend)
+// npm install @mui/material @emotion/react @emotion/styled --force (frontend)
+
 // npm i nodemon concurrently (backend)
 // npm i -D nodemon concurrently (backend)
 // npm i dotenv (root)
