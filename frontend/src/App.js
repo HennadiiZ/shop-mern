@@ -1,7 +1,5 @@
-// //-----
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import { Container } from 'react-bootstrap';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
