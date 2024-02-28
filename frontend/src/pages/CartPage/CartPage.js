@@ -1,15 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
-import {
-  Grid,
-  Typography,
-  Button,
-  Select,
-  MenuItem,
-  IconButton,
-  TextField,
-} from '@mui/material';
+import { Grid, Typography, Button, Select, MenuItem } from '@mui/material';
 // import { Row, Col } from 'react-bootstrap';
 import { addToCart, removeFromCart } from '../../_actions/cartActions';
 import Message from '../../components/Message/Message';
