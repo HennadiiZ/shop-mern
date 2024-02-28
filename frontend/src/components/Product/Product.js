@@ -1,30 +1,47 @@
+// // Product.js
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 import Rating from '../Rating/Rating';
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   return (
-    <Card className='my-3 p-3 rounded'>
+    <Card
+      className='my-3 rounded'
+      sx={{
+        maxWidth: 345,
+        padding: 1,
+        backgroundColor: 'rgba(244, 244, 244, 0.9)',
+        borderRadius: 2,
+      }}
+    >
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant='top' />
+        <CardMedia
+          component='img'
+          alt={product.name}
+          height='240'
+          image={product.image}
+        />
       </Link>
-      <Card.Body>
+      <CardContent>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as='div'>
+          <Typography variant='h6' component='div'>
             <strong>{product.name}</strong>
-          </Card.Title>
+          </Typography>
         </Link>
-        <Card.Text as='div'>
-          {/* my component */}
+        <Typography variant='body2' color='text.secondary'>
           <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
           />
-          {/*  */}
-        </Card.Text>
-        <Card.Text as='h3'>${product.price}</Card.Text>
-      </Card.Body>
+        </Typography>
+        <Typography variant='h6' color='text.primary'>
+          ${product.price}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };

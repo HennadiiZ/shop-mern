@@ -1,6 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
+import {
+  Button,
+  Grid,
+  Typography,
+  Paper,
+  List,
+  ListItem,
+  Avatar,
+  Card,
+} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../../components/Message/Message';
 import CheckoutSteps from '../../components/CheckoutSteps/CheckoutSteps';
@@ -59,109 +68,151 @@ const PlaceOrderPage = () => {
 
   return (
     <>
-      <CheckoutSteps step1 step2 step3 step4 />
-      <Row>
-        <Col md={8}>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Address:</strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
-                {cart.shippingAddress.postalCode},{' '}
-                {cart.shippingAddress.country}
-              </p>
-            </ListGroup.Item>
+      <Grid
+        sx={{
+          borderRadius: 2,
+          marginTop: 3,
+          padding: 3,
+          marginLeft: -2,
+          paddingBottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <CheckoutSteps step1 step2 step3 step4 />
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item md={8}>
+          <Paper
+            sx={{
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
+            <Typography variant='h4'>Shipping</Typography>
+            <Typography>
+              <strong>Address:</strong>
+              {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
+              {cart.shippingAddress.postalCode}, {cart.shippingAddress.country}
+            </Typography>
+          </Paper>
 
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
+          <Paper
+            sx={{
+              mt: 2,
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
+            <Typography variant='h4'>Payment Method</Typography>
+            <Typography>
               <strong>Method: </strong>
               {cart.paymentMethod}
-            </ListGroup.Item>
+            </Typography>
+          </Paper>
 
-            <ListGroup.Item>
-              <h2>Order Items</h2>
-              {cart.cartItems.length === 0 ? (
-                <Message>Your cart is empty</Message>
-              ) : (
-                <ListGroup variant='flush'>
-                  {cart.cartItems.map((item, index) => (
-                    <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </Col>
-                        <Col>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={4}>
-                          {item.quantity} x ${item.price} = $
-                          {(item.quantity * item.price).toFixed(2)}
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              )}
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <h2>Order Summary</h2>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
-                </Row>
-              </ListGroup.Item>
+          <Paper
+            sx={{
+              mt: 2,
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
+            <Typography variant='h4'>Order Items</Typography>
+            {cart.cartItems.length === 0 ? (
+              <Message>Your cart is empty</Message>
+            ) : (
+              <List>
+                {cart.cartItems.map((item, index) => (
+                  <ListItem key={index}>
+                    <Grid container alignItems='center'>
+                      <Grid item md={1}>
+                        <Avatar
+                          src={item.image}
+                          alt={item.name}
+                          variant='rounded'
+                        />
+                      </Grid>
+                      <Grid item>
+                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      </Grid>
+                      <Grid
+                        item
+                        md={4}
+                        sx={{
+                          marginLeft: 2,
+                        }}
+                      >
+                        {item.quantity} x ${item.price} = $
+                        {(item.quantity * item.price).toFixed(2)}
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                ))}
+              </List>
+            )}
+          </Paper>
+        </Grid>
+
+        <Grid item md={4}>
+          <Card
+            sx={{
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
+            <List>
+              <ListItem>
+                <Typography variant='h4'>Order Summary</Typography>
+              </ListItem>
+              <ListItem>
+                <Grid container>
+                  <Grid item>Items</Grid>
+                  <Grid item>${cart.itemsPrice}</Grid>
+                </Grid>
+              </ListItem>
+              <ListItem>
+                <Grid container>
+                  <Grid item>Shipping</Grid>
+                  <Grid item>${cart.shippingPrice}</Grid>
+                </Grid>
+              </ListItem>
+              <ListItem>
+                <Grid container>
+                  <Grid item>Tax</Grid>
+                  <Grid item>${cart.taxPrice}</Grid>
+                </Grid>
+              </ListItem>
+              <ListItem>
+                <Grid container>
+                  <Grid item>Total</Grid>
+                  <Grid item>${cart.totalPrice}</Grid>
+                </Grid>
+              </ListItem>
               {/*  */}
-              <ListGroup.Item>
+              <ListItem>
                 {error && <Message variant='danger'>{error}</Message>}
-              </ListGroup.Item>
+              </ListItem>
               {/*  */}
-              <ListGroup.Item>
+              <ListItem>
                 <Button
                   type='button'
-                  className='btn-block'
+                  fullWidth
+                  variant='contained'
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
                   Place Order
                 </Button>
-              </ListGroup.Item>
-            </ListGroup>
+              </ListItem>
+            </List>
           </Card>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     </>
   );
 };

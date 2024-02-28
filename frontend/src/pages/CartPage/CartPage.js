@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Form, Button } from 'react-bootstrap';
+import { Grid, Typography, Button, Select, MenuItem } from '@mui/material';
 import { addToCart, removeFromCart } from '../../_actions/cartActions';
 import Message from '../../components/Message/Message';
 
@@ -16,13 +16,8 @@ const CartPage = () => {
 
   const quantity = queryString ? +searchParams.get('qty') : 1;
 
-  // console.log('searchParams.get(qty):', searchParams.get('qty')); // 1
-  // console.log('queryString:', queryString); //?qty=1
-
-  //fix
   const userInfo = useSelector((state) => state.userLogin.userInfo);
   const redirectPath = userInfo ? '/shipping' : '/login?redirect=shipping';
-  //fix
 
   useEffect(() => {
     if (id) {
@@ -38,92 +33,131 @@ const CartPage = () => {
   };
 
   const checkoutHandler = () => {
-    // navigate('/login?redirect=shipping');
-    navigate(redirectPath); //fix
+    navigate(redirectPath);
   };
 
   return (
-    <Row>
-      <Col md={8}>
-        <h2>Shopping Cart</h2>
+    <Grid container spacing={3}>
+      <Grid item md={8}>
+        <Typography variant='h4'>Shopping Cart</Typography>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to='/'>Go Back</Link>
           </Message>
         ) : (
-          <ListGroup variant='flush'>
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+              padding: 3,
+              marginTop: 1,
+              borderRadius: 2,
+              boxShadow:
+                '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
+            }}
+          >
             {cartItems.map((item) => (
-              <ListGroup.Item key={item.product}>
-                {/*  */}
-                <Row>
-                  <Col md={4}>
-                    <Image
+              <Grid item xs={12} key={item.product}>
+                <Grid container spacing={2}>
+                  <Grid item xs={4}>
+                    <img
                       src={item.image}
-                      // style={{ width: '200px' }}
-                      fluid
-                      rounded
+                      alt={item.name}
+                      style={{ width: '100%' }}
                     />
-                  </Col>
-                  <Col md={6}>
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
-                    <p>Quantity: {item.quantity}</p>
-                    <p>$ {item.price}</p>
-                    {/*  */}
-                    <Form.Control
-                      as='select'
+                  </Grid>
+                  <Grid item xs={8}>
+                    <Typography variant='h6'>
+                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    </Typography>
+                    <Typography variant='body1'>
+                      Quantity: {item.quantity}
+                    </Typography>
+                    <Typography variant='body1'>$ {item.price}</Typography>
+                    <Select
                       value={item.quantity}
                       onChange={(e) =>
                         dispatch(addToCart(item.product, +e.target.value))
                       }
+                      fullWidth
                     >
                       {[...Array(item.countInStock).keys()].map((i) => (
-                        <option key={i + 1} value={i + 1}>
+                        <MenuItem key={i + 1} value={i + 1}>
                           {i + 1}
-                        </option>
+                        </MenuItem>
                       ))}
-                    </Form.Control>
-                    {/*  */}
+                    </Select>
                     <Button
-                      style={{ marginTop: '15px' }}
-                      type='button'
-                      variant='light'
+                      aria-label='delete'
+                      variant='outlined'
+                      color='error'
                       onClick={() => removeFromCartHandler(item.product)}
+                      sx={{
+                        marginTop: 1,
+                      }}
                     >
-                      Remove
+                      Delete
                     </Button>
-                  </Col>
-                </Row>
-                {/*  */}
-              </ListGroup.Item>
+                  </Grid>
+                </Grid>
+              </Grid>
             ))}
-          </ListGroup>
+          </Grid>
         )}
-      </Col>
-      <Col md={4}>
-        <ListGroup variant='flush'>
-          <ListGroup.Item>
-            <h2>
+      </Grid>
+      <Grid item md={4}>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+              padding: 3,
+              marginTop: 4,
+              marginLeft: 2,
+              borderRadius: 2,
+              boxShadow:
+                '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
+            }}
+          >
+            <Typography variant='h4'>
               Subtotal&nbsp;
               {cartItems.reduce((acc, item) => +acc + +item.quantity, 0)} items
-            </h2>
-            $
-            {cartItems
-              .reduce((acc, item) => +acc + +item.quantity * +item.price, 0)
-              .toFixed(2)}
-          </ListGroup.Item>
-          <ListGroup.Item>
+            </Typography>
+            <Typography variant='body1'>
+              $
+              {cartItems
+                .reduce((acc, item) => +acc + +item.quantity * +item.price, 0)
+                .toFixed(2)}
+            </Typography>
             <Button
               type='button'
-              className='btn-block'
+              fullWidth
               disabled={cartItems.length === 0}
               onClick={checkoutHandler}
+              variant='contained'
+              sx={{
+                marginTop: 2,
+              }}
             >
               Proceed to Checkout
             </Button>
-          </ListGroup.Item>
-        </ListGroup>
-      </Col>
-    </Row>
+          </Grid>
+          {/* <Grid item xs={12}>
+            <Button
+              type='button'
+              fullWidth
+              disabled={cartItems.length === 0}
+              onClick={checkoutHandler}
+              variant='contained'
+            >
+              Proceed to Checkout
+            </Button>
+          </Grid> */}
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

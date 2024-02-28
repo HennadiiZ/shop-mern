@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className='py-3'>
+      <main className='py-3 bg'>
         <Container>
           <Routes>
             <Route path='/' element={<HomePage />} exact />
@@ -40,11 +40,14 @@ const App = () => {
 };
 
 export default App;
+//-----
 
 // rafce
 // npm i react-router-dom react-router-bootstrap (frontend)
 // npm i redux react-redux redux-thunk redux-devtools-extension (frontend)
 // npm i react-paypal-button-v2 (frontend)
+// npm install @mui/material @emotion/react @emotion/styled --force (frontend)
+
 // npm i nodemon concurrently (backend)
 // npm i -D nodemon concurrently (backend)
 // npm i dotenv (root)
