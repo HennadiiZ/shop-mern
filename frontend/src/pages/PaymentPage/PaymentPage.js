@@ -36,7 +36,7 @@ const PaymentPage = () => {
     <FormContainer>
       <Grid
         sx={{
-          backgroundColor: '#f4f4f4',
+          // backgroundColor: '#f4f4f4',
           borderRadius: 2,
           marginTop: 3,
           padding: 3,
@@ -46,7 +46,7 @@ const PaymentPage = () => {
           justifyContent: 'center',
         }}
       >
-        <CheckoutSteps step1 step2 />
+        <CheckoutSteps step1 step2 step3 />
       </Grid>
       {/* <CheckoutSteps step1 step2 step3 /> */}
 
@@ -57,6 +57,8 @@ const PaymentPage = () => {
           borderRadius: 2,
           marginTop: 3,
           marginLeft: -2,
+          boxShadow:
+            '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
         }}
       >
         <Typography variant='h4'>Payment Method</Typography>

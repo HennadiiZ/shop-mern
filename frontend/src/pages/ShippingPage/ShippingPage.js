@@ -29,7 +29,7 @@ const ShippingPage = () => {
     <FormContainer>
       <Grid
         sx={{
-          backgroundColor: '#f4f4f4',
+          // backgroundColor: '#f4f4f4',
           borderRadius: 2,
           marginTop: 3,
           padding: 3,
@@ -53,6 +53,8 @@ const ShippingPage = () => {
           paddingLeft: 0,
           borderRadius: 2,
           marginTop: 3,
+          boxShadow:
+            '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
         }}
       >
         <Typography

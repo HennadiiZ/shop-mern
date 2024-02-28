@@ -55,6 +55,8 @@ const CartPage = () => {
               padding: 3,
               marginTop: 1,
               borderRadius: 2,
+              boxShadow:
+                '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
             }}
           >
             {cartItems.map((item) => (
@@ -115,7 +117,10 @@ const CartPage = () => {
               backgroundColor: '#f4f4f4',
               padding: 3,
               marginTop: 2,
+              marginLeft: 2,
               borderRadius: 2,
+              boxShadow:
+                '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
             }}
           >
             <Typography variant='h4'>
