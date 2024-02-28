@@ -10,6 +10,7 @@ import {
   MenuItem,
 } from '@mui/material';
 import { logout } from '../../_actions/userActions';
+import VinylLogo from '../../images/vinyl.png';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,12 @@ const Header = () => {
                   fontSize: 'inherit',
                 }}
               >
-                Shop
+                <img
+                  src={VinylLogo}
+                  alt='Vinyl Store Logo'
+                  style={{ marginRight: '10px', height: '30px' }}
+                />
+                VINYL STORE
               </NavLink>
             </Typography>
             {userInfo ? (

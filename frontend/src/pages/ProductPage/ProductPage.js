@@ -31,7 +31,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Button component={RouterLink} to='/' variant='outlined' color='primary'>
+      <Button component={RouterLink} to='/' variant='contained' color='primary'>
         Go Back
       </Button>
       {!loading ? (
@@ -46,7 +46,7 @@ const ProductPage = () => {
           // spacing={1}
           // md={8}
           sx={{
-            backgroundColor: '#f4f4f4',
+            backgroundColor: 'rgba(244, 244, 244, 0.9)',
             padding: 3,
             marginTop: 1,
             borderRadius: 2,
@@ -104,7 +104,9 @@ const ProductPage = () => {
               <Grid item xs={12} className='text-center'>
                 <Button
                   onClick={addToCartHandler}
-                  variant='outlined'
+                  // variant='outlined'
+                  // color='primary'
+                  variant='contained'
                   color='primary'
                   disabled={product.countInStock === 0}
                   sx={{ width: '100%' }}

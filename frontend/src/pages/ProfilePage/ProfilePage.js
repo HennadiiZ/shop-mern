@@ -74,7 +74,12 @@ const ProfilePage = () => {
       <Grid
         container
         spacing={3}
-        sx={{ mt: 5, padding: 3, backgroundColor: '#f4f4f4', borderRadius: 2 }}
+        sx={{
+          mt: 5,
+          padding: 3,
+          backgroundColor: 'rgba(244, 244, 244, 0.9)',
+          borderRadius: 2,
+        }}
       >
         <Grid item xs={12} md={3}>
           <Typography variant='h6'>User Profile</Typography>

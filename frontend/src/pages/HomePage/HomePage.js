@@ -16,9 +16,15 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <Box>
+    <Box
+      sx={{
+        padding: 3,
+        backgroundColor: 'rgba(244, 244, 244, 0.3)',
+        borderRadius: 2,
+      }}
+    >
       <Typography variant='h4' component='h1' mb={2}>
-        Products
+        CHOOSE YOUR VINYL
       </Typography>
       {loading ? (
         <Loader />

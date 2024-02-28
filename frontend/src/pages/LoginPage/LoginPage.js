@@ -35,7 +35,12 @@ const LoginPage = () => {
   return (
     <FormContainer>
       <Grid
-        sx={{ mt: 5, padding: 3, backgroundColor: '#f4f4f4', borderRadius: 2 }}
+        sx={{
+          mt: 5,
+          padding: 3,
+          backgroundColor: 'rgba(244, 244, 244, 0.9)',
+          borderRadius: 2,
+        }}
       >
         <Typography variant='h4'>Sign In</Typography>
         {error && <Message variant='danger'>{error}</Message>}

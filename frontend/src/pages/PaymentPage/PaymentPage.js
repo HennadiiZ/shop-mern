@@ -52,7 +52,7 @@ const PaymentPage = () => {
 
       <Grid
         sx={{
-          backgroundColor: '#f4f4f4',
+          backgroundColor: 'rgba(244, 244, 244, 0.9)',
           padding: 3,
           borderRadius: 2,
           marginTop: 3,

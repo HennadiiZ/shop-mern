@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className='py-3'>
+      <main className='py-3 bg'>
         <Container>
           <Routes>
             <Route path='/' element={<HomePage />} exact />

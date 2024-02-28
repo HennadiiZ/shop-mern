@@ -86,7 +86,13 @@ const PlaceOrderPage = () => {
       </Grid>
       <Grid container spacing={3}>
         <Grid item md={8}>
-          <Paper sx={{ p: 3, borderRadius: 2, backgroundColor: '#f4f4f4' }}>
+          <Paper
+            sx={{
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
             <Typography variant='h4'>Shipping</Typography>
             <Typography>
               <strong>Address:</strong>
@@ -97,7 +103,12 @@ const PlaceOrderPage = () => {
           </Paper>
 
           <Paper
-            sx={{ mt: 2, p: 3, borderRadius: 2, backgroundColor: '#f4f4f4' }}
+            sx={{
+              mt: 2,
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
           >
             <Typography variant='h4'>Payment Method</Typography>
             <Typography>
@@ -107,7 +118,12 @@ const PlaceOrderPage = () => {
           </Paper>
 
           <Paper
-            sx={{ mt: 2, p: 3, borderRadius: 2, backgroundColor: '#f4f4f4' }}
+            sx={{
+              mt: 2,
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
           >
             <Typography variant='h4'>Order Items</Typography>
             {cart.cartItems.length === 0 ? (
@@ -146,7 +162,13 @@ const PlaceOrderPage = () => {
         </Grid>
 
         <Grid item md={4}>
-          <Card sx={{ p: 3, borderRadius: 2, backgroundColor: '#f4f4f4' }}>
+          <Card
+            sx={{
+              p: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
+            }}
+          >
             <List>
               <ListItem>
                 <Typography variant='h4'>Order Summary</Typography>

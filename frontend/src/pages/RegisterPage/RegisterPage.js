@@ -42,7 +42,12 @@ const RegisterPage = () => {
   return (
     <FormContainer>
       <Grid
-        sx={{ mt: 5, padding: 3, backgroundColor: '#f4f4f4', borderRadius: 2 }}
+        sx={{
+          mt: 5,
+          padding: 3,
+          backgroundColor: 'rgba(244, 244, 244, 0.9)',
+          borderRadius: 2,
+        }}
       >
         <Typography variant='h4'>Register</Typography>
         {message && <Message variant='danger'>{message}</Message>}

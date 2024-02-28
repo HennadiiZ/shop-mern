@@ -48,7 +48,7 @@ const ShippingPage = () => {
         onSubmit={submitHandler}
         spacing={2}
         sx={{
-          backgroundColor: '#f4f4f4',
+          backgroundColor: 'rgba(244, 244, 244, 0.9)',
           padding: 3,
           paddingLeft: 0,
           borderRadius: 2,

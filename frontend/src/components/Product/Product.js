@@ -9,7 +9,16 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   return (
-    <Card sx={{ maxWidth: 345 }} className='my-3 rounded'>
+    <Card
+      // sx={{ maxWidth: 345 }}
+      className='my-3 rounded'
+      sx={{
+        maxWidth: 345,
+        padding: 1,
+        backgroundColor: 'rgba(244, 244, 244, 0.9)',
+        borderRadius: 2,
+      }}
+    >
       <Link to={`/product/${product._id}`}>
         <CardMedia
           component='img'

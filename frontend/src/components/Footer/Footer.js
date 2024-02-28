@@ -20,7 +20,7 @@ const Footer = () => {
               to='/california-privacy-notice'
               style={{ color: 'white', textDecoration: 'none' }}
             >
-              <Button color='inherit'>Copyright &copy; Shop</Button>
+              <Button color='inherit'>Copyright &copy; VINYL STORE</Button>
             </Link>
           </Typography>
           {/*  */}

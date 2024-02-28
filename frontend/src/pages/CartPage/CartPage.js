@@ -51,7 +51,7 @@ const CartPage = () => {
             container
             spacing={2}
             sx={{
-              backgroundColor: '#f4f4f4',
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
               padding: 3,
               marginTop: 1,
               borderRadius: 2,
@@ -114,7 +114,7 @@ const CartPage = () => {
             item
             xs={12}
             sx={{
-              backgroundColor: '#f4f4f4',
+              backgroundColor: 'rgba(244, 244, 244, 0.9)',
               padding: 3,
               marginTop: 4,
               marginLeft: 2,

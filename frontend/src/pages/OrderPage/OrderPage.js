@@ -92,7 +92,7 @@ const OrderPage = () => {
           <Message variant='danger'>{error}</Message>
         ) : (
           <>
-            <Card sx={{ mt: 2, backgroundColor: '#f4f4f4' }}>
+            <Card sx={{ mt: 2, backgroundColor: 'rgba(244, 244, 244, 0.9)' }}>
               <CardContent>
                 <Typography variant='h4'>Shipping</Typography>
                 <Typography>
@@ -122,7 +122,7 @@ const OrderPage = () => {
               </CardContent>
             </Card>
 
-            <Card sx={{ mt: 2, backgroundColor: '#f4f4f4' }}>
+            <Card sx={{ mt: 2, backgroundColor: 'rgba(244, 244, 244, 0.9)' }}>
               <CardContent>
                 <Typography variant='h4'>Payment Method</Typography>
                 <Typography>
@@ -138,7 +138,7 @@ const OrderPage = () => {
               </CardContent>
             </Card>
 
-            <Card sx={{ mt: 2, backgroundColor: '#f4f4f4' }}>
+            <Card sx={{ mt: 2, backgroundColor: 'rgba(244, 244, 244, 0.9)' }}>
               <CardContent>
                 <Typography variant='h4'>Order Items</Typography>
                 {order?.orderItems?.length === 0 ? (
@@ -173,7 +173,7 @@ const OrderPage = () => {
       </Grid>
 
       <Grid item md={4}>
-        <Card sx={{ mt: 2, backgroundColor: '#f4f4f4' }}>
+        <Card sx={{ mt: 2, backgroundColor: 'rgba(244, 244, 244, 0.9)' }}>
           <CardContent>
             <Typography variant='h4'>Order Summary</Typography>
             <Typography>
