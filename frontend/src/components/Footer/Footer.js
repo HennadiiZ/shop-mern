@@ -15,7 +15,6 @@ const Footer = () => {
           }}
         >
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            {/* You can customize the text and links as needed */}
             <Link
               to='/california-privacy-notice'
               style={{ color: 'white', textDecoration: 'none' }}
@@ -23,7 +22,7 @@ const Footer = () => {
               <Button color='inherit'>Copyright &copy; VINYL STORE</Button>
             </Link>
           </Typography>
-          {/*  */}
+
           <Link
             to='/cookies-settings'
             style={{ color: 'white', textDecoration: 'none' }}
@@ -62,22 +61,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// import React from 'react';
-// import { Container, Row, Col } from 'react-bootstrap';
-
-// const Footer = () => {
-//   return (
-//     <footer>
-//       <Container>
-//         <Row>
-//           <Col className='text-center py-3'>
-//             Copyright &copy; Shop
-//           </Col>
-//         </Row>
-//       </Container>
-//     </footer>
-//   )
-// }
-
-// export default Footer
