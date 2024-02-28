@@ -43,7 +43,8 @@ const ProductPage = () => {
       ) : (
         <Grid
           container
-          spacing={1}
+          // spacing={1}
+          // md={8}
           sx={{
             backgroundColor: '#f4f4f4',
             padding: 3,
@@ -58,8 +59,8 @@ const ProductPage = () => {
               style={{ width: '100%' }}
             />
           </Grid>
-          <Grid item md={6}>
-            <Typography variant='h3'>{product.name}</Typography>
+          <Grid item md={5} style={{ marginLeft: 15 }}>
+            <Typography variant='h4'>{product.name}</Typography>
             <Rating
               value={product.rating}
               text={`${product.numReviews} reviews`}
@@ -68,7 +69,7 @@ const ProductPage = () => {
               Description: {product.description}
             </Typography>
           </Grid>
-          <Grid item md={12} sx={{ my: 3 }}>
+          <Grid item md={8} sx={{ my: 3 }}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={4}>
                 <Typography variant='h6'>Price:</Typography>
