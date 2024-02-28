@@ -1,10 +1,11 @@
+// // Product.js
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
 import Rating from '../Rating/Rating';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   return (
@@ -39,6 +40,7 @@ const Product = ({ product }) => {
 
 export default Product;
 
+// orig
 // import React from 'react';
 // import { Card } from 'react-bootstrap';
 // import Rating from '../Rating/Rating';
