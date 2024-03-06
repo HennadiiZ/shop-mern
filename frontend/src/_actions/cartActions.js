@@ -1,5 +1,6 @@
 import {
   CART_ADD_ITEM,
+  CART_CLEAR_ITEMS,
   CART_REMOVE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
@@ -67,4 +68,12 @@ export const savePaymentMethod = (data) => (dispatch) => {
   });
 
   localStorage.setItem('paymentMethod', JSON.stringify(data));
+};
+
+//----- clear cart, so I do not see orders that I already paid for
+export const clearCart = () => (dispatch) => {
+  dispatch({
+    type: CART_CLEAR_ITEMS,
+  });
+  localStorage.removeItem('cartItems');
 };
