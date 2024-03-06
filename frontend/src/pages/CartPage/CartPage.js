@@ -41,7 +41,9 @@ const CartPage = () => {
   return (
     <Grid container spacing={3}>
       <Grid item md={8}>
-        <Typography variant='h4'>Shopping Cart</Typography>
+        <Typography variant='h4' sx={{ mb: 3 }}>
+          Shopping Cart
+        </Typography>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to='/'>Go Back</Link>
