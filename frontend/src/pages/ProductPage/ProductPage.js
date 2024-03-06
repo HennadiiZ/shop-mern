@@ -74,7 +74,8 @@ const ProductPage = () => {
               <Grid item xs={12} md={4}>
                 <Typography variant='h6'>Price:</Typography>
                 <Typography variant='body1'>
-                  <strong>${product.price * quantity}</strong>
+                  {/* <strong>${product.price * quantity}</strong> */}
+                  <strong>${(product.price * quantity).toFixed(2)}</strong>
                 </Typography>
               </Grid>
               <Grid item xs={12} md={4}>

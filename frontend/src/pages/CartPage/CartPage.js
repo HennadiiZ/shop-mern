@@ -19,14 +19,14 @@ const CartPage = () => {
   const userInfo = useSelector((state) => state.userLogin.userInfo);
   const redirectPath = userInfo ? '/shipping' : '/login?redirect=shipping';
 
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, quantity));
     }
   }, [dispatch, id, quantity]);
-
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
 
   const removeFromCartHandler = (productId) => {
     dispatch(removeFromCart(productId));
@@ -39,7 +39,9 @@ const CartPage = () => {
   return (
     <Grid container spacing={3}>
       <Grid item md={8}>
-        <Typography variant='h4'>Shopping Cart</Typography>
+        <Typography variant='h4' sx={{ mb: 3 }}>
+          Shopping Cart
+        </Typography>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to='/'>Go Back</Link>

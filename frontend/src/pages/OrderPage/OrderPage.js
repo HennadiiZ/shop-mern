@@ -16,6 +16,7 @@ import Message from '../../components/Message/Message';
 import Loader from '../../components/Loader/Loader';
 import { getOrderDetails, payOrder } from '../../_actions/orderActions';
 import { ORDER_PAY_RESET } from '../../constants/orderConstants';
+import { clearCart } from '../../_actions/cartActions';
 
 const OrderPage = () => {
   const { id } = useParams();
@@ -68,14 +69,17 @@ const OrderPage = () => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, id, successPay, order, navigate]);
+  }, [dispatch, id, successPay, order]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log('paymentResult', paymentResult);
+
     dispatch(payOrder(id, paymentResult));
 
     if (paymentResult.status === 'COMPLETED') {
       navigate('/profile');
+      dispatch(clearCart());
+      // localStorage.removeItem('cartItems');
     }
   };
 
