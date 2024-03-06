@@ -1,6 +1,7 @@
 // cartReducers.js
 import {
   CART_ADD_ITEM,
+  CART_CLEAR_ITEMS,
   CART_REMOVE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
@@ -43,6 +44,13 @@ export const cartReducer = (
         ...state,
         paymentMethod: action.payload,
       };
+    //----- clear cart, so I do not see orders that I already paid for
+    case CART_CLEAR_ITEMS:
+      return {
+        ...state,
+        cartItems: [], // Reset cartItems to an empty array
+      };
+    //----
     default:
       return state;
   }
