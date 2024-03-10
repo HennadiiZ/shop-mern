@@ -34,7 +34,7 @@ const Product = ({ product }) => {
         </Link>
         <Typography variant='body2' color='text.secondary' component='div'>
           <Rating
-            value={product.rating}
+            value={product.rating || 0}
             text={`${product.numReviews} reviews`}
           />
         </Typography>

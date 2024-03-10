@@ -62,7 +62,7 @@ const ProductPage = () => {
           <Grid item md={5} style={{ marginLeft: 15 }}>
             <Typography variant='h4'>{product.name}</Typography>
             <Rating
-              value={product.rating}
+              value={product.rating || 0}
               text={`${product.numReviews} reviews`}
             />
             <Typography variant='body1'>
