@@ -48,7 +48,7 @@ const CartPage = () => {
           </Message>
         ) : (
           <Grid
-            // container
+            container
             spacing={2}
             sx={{
               backgroundColor: 'rgba(244, 244, 244, 0.9)',
@@ -155,6 +155,7 @@ const CartPage = () => {
 
 export default CartPage;
 
+//--------
 // import React, { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
@@ -205,7 +206,7 @@ export default CartPage;
 //           </Message>
 //         ) : (
 //           <Grid
-//             container
+//             // container
 //             spacing={2}
 //             sx={{
 //               backgroundColor: 'rgba(244, 244, 244, 0.9)',
