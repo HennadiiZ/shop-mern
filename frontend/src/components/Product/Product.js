@@ -32,7 +32,7 @@ const Product = ({ product }) => {
             <strong>{product.name}</strong>
           </Typography>
         </Link>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography variant='body2' color='text.secondary' component='div'>
           <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
