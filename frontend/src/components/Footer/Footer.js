@@ -11,6 +11,7 @@ const Footer = () => {
             justifyContent: 'space-between',
             padding: { xs: '0 10px', sm: '0 20px', md: '0 30px' },
           }}
+          style={{ paddingLeft: 0, paddingRight: 0 }}
         >
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             <div
