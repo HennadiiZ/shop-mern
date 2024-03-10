@@ -65,3 +65,12 @@ export default App;
 // npm start
 
 // npm run dev (root)
+
+// TODO and FIX:
+// redirect to register page after creating a user and login
+// after loging as a new user, I can see someones cart.
+// paypall error sometimes.
+// routing guards
+// TypeScript
+// JS x JSX (TS x TSX)
+// Pages -> smaller components.
