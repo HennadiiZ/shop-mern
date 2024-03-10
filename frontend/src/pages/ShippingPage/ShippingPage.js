@@ -32,7 +32,7 @@ const ShippingPage = () => {
           borderRadius: 2,
           marginTop: 3,
           padding: 3,
-          marginLeft: -2,
+          // marginLeft: -2,
           paddingBottom: 0,
           display: 'flex',
           justifyContent: 'center',

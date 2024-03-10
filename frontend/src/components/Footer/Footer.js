@@ -4,7 +4,7 @@ import { Toolbar, Button, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <footer backgroundColor='blue'>
+    <footer>
       <div className='container'>
         <Toolbar
           sx={{
