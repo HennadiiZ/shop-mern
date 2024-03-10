@@ -12,7 +12,7 @@ const Product = ({ product }) => {
     <Card
       className='my-3 rounded'
       sx={{
-        maxWidth: 345,
+        // maxWidth: 345,
         padding: 1,
         backgroundColor: 'rgba(244, 244, 244, 0.9)',
         borderRadius: 2,
