@@ -39,7 +39,7 @@ const PaymentPage = () => {
           borderRadius: 2,
           marginTop: 3,
           padding: 3,
-          marginLeft: -2,
+          // marginLeft: -2,
           paddingBottom: 0,
           display: 'flex',
           justifyContent: 'center',
@@ -54,7 +54,7 @@ const PaymentPage = () => {
           padding: 3,
           borderRadius: 2,
           marginTop: 3,
-          marginLeft: -2,
+          // marginLeft: -2,
           boxShadow:
             '0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)',
         }}

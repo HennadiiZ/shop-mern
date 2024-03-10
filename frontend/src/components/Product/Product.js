@@ -12,7 +12,7 @@ const Product = ({ product }) => {
     <Card
       className='my-3 rounded'
       sx={{
-        maxWidth: 345,
+        // maxWidth: 345,
         padding: 1,
         backgroundColor: 'rgba(244, 244, 244, 0.9)',
         borderRadius: 2,
@@ -32,9 +32,9 @@ const Product = ({ product }) => {
             <strong>{product.name}</strong>
           </Typography>
         </Link>
-        <Typography variant='body2' color='text.secondary'>
+        <Typography variant='body2' color='text.secondary' component='div'>
           <Rating
-            value={product.rating}
+            value={product.rating || 0}
             text={`${product.numReviews} reviews`}
           />
         </Typography>
