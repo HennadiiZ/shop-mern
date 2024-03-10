@@ -146,7 +146,13 @@ const ProfilePage = () => {
             <Message variant='danger'>{errorOrders}</Message>
           ) : (
             <TableContainer>
-              <Table striped bordered hover responsive>
+              {/* <Table striped bordered hover responsive> */}
+              <Table
+                striped='true'
+                bordered='true'
+                hover='true'
+                responsive='true'
+              >
                 <TableHead>
                   <TableRow>
                     <TableCell>ID</TableCell>
