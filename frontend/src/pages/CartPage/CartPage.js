@@ -53,6 +53,7 @@ const CartPage = () => {
             sx={{
               backgroundColor: 'rgba(244, 244, 244, 0.9)',
               padding: 3,
+              ml: 0,
               marginTop: 1,
               borderRadius: 2,
               boxShadow:

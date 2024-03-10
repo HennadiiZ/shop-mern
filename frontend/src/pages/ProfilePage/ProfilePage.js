@@ -74,6 +74,7 @@ const ProfilePage = () => {
         spacing={3}
         sx={{
           mt: 5,
+          ml: 0,
           padding: 3,
           backgroundColor: 'rgba(244, 244, 244, 0.9)',
           borderRadius: 2,
