@@ -36,3 +36,7 @@ h3 {
   opacity: 0.7;
   z-index: -1;
 }
+
+footer {
+  background: #000;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Button, Typography } from '@mui/material';
+import { Toolbar, Button, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <AppBar position='static' color='primary'>
+    <footer backgroundColor='blue'>
       <div className='container'>
         <Toolbar
           sx={{
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </Toolbar>
       </div>
-    </AppBar>
+    </footer>
   );
 };
 
