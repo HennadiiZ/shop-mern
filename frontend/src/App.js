@@ -62,7 +62,9 @@ export default App;
 
 // "proxy": "http://127.0.0.1:5001",
 // https://jwt.io/
-// npm start
+// npm start (in root to run server)
+
+// npm run build
 
 // npm run dev (root)
 
